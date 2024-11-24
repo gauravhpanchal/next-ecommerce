@@ -36,7 +36,7 @@ const ProductList = () => {
         </button>
       </Link>
       <Link
-        href="/"
+        href="/test"
         className="w-full sm:w-[45%] lg:w-[22%] flex flex-col gap-4"
       >
         <div className="relative w-full h-64">
@@ -65,7 +65,7 @@ const ProductList = () => {
         </button>
       </Link>
       <Link
-        href="/"
+        href="/test"
         className="w-full sm:w-[45%] lg:w-[22%] flex flex-col gap-4"
       >
         <div className="relative w-full h-64">
@@ -94,7 +94,7 @@ const ProductList = () => {
         </button>
       </Link>
       <Link
-        href="/"
+        href="/test"
         className="w-full sm:w-[45%] lg:w-[22%] flex flex-col gap-4"
       >
         <div className="relative w-full h-64">
@@ -122,6 +122,7 @@ const ProductList = () => {
           Add to Cart
         </button>
       </Link>
+      
     </div>
   );
 };

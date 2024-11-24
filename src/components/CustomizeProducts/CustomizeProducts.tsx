@@ -1,6 +1,7 @@
 import React from "react";
 
 const CustomizeProducts = () => {
+  
   return (
     <div className="flex flex-col gap-6">
       <h4 className="font-medium">Choose a color</h4>
@@ -23,7 +24,7 @@ const CustomizeProducts = () => {
         <li className="ring-1 ring-[#f35c7a] text-white bg-[#f35c7a] rounded-md py-1 px-4 text-sm cursor-pointer">
           Medium
         </li>
-        <li className="ring-1 text-white bg-pink-200 rounded-md py-1 px-4 text-sm cursor-not-allowed">
+        <li className="text-white bg-pink-200 rounded-md py-1 px-4 text-sm cursor-not-allowed">
           Large
         </li>
       </ul>
