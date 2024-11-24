@@ -1,9 +1,14 @@
+"use client";
 import Link from "next/link";
 import React from "react";
 import Menu from "../Menu/Menu";
 import Image from "next/image";
 import SearchBar from "../SearchBar/SearchBar";
-import NavbarIcons from "../NavbarIcons/NavbarIcons";
+import dynamic from "next/dynamic";
+
+const NavbarIcons = dynamic(() => import("../NavbarIcons/NavbarIcons"), {
+  ssr: false,
+});
 
 type Props = {};
 
