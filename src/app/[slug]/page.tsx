@@ -5,7 +5,11 @@ import { wixClientServer } from "@/lib/wixClientServer";
 import { notFound } from "next/navigation";
 import React from "react";
 
-const ProductDetailsPage = async ({ params }: { params: { slug: any } }) => {
+interface ProductDetailsPageProps {
+  params: { slug: string };
+}
+
+const ProductDetailsPage = async ({ params }: ProductDetailsPageProps) => {
   const wixClient = await wixClientServer();
 
   const products = await wixClient.products

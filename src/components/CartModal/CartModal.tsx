@@ -12,6 +12,13 @@ const CartModal = () => {
 
   console.log(cart);
 
+  const calculateSubtotal = (lineItems: currentCart.LineItem[]) =>
+    lineItems.reduce(
+      (total, item) =>
+        total + Number(item.price?.amount || 0) * Number(item.quantity || 1),
+      0
+    );
+
   // const handleCheckout = async () => {
   //   try {
   //     const checkout =
@@ -89,7 +96,7 @@ const CartModal = () => {
                             {item.quantity} x{" "}
                           </div>
                         )}
-                        ${item.price?.amount}
+                        {item.price?.formattedAmount}
                       </div>
                     </div>
                     {/* DESC */}
@@ -116,7 +123,9 @@ const CartModal = () => {
           <div className="">
             <div className="flex items-center justify-between font-semibold">
               <span className="">Subtotal</span>
-              <span className="">${cart.subtotal.amount}</span>
+              <span className="">
+                ₹{calculateSubtotal(cart.lineItems || [])}
+              </span>
             </div>
             <p className="text-gray-500 text-sm mt-2 mb-4">
               Shipping and taxes calculated at checkout.
