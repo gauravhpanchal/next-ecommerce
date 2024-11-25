@@ -4,15 +4,17 @@ import ProductImages from "@/components/ProductImages/ProductImages";
 import { wixClientServer } from "@/lib/wixClientServer";
 import { notFound } from "next/navigation";
 
-type tParams = Promise<{ slug: string[] }>;
-
-const SinglePage = async ({ params }: { params: { slug: tParams } }) => {
+const SinglePage = async ({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) => {
   const { slug } = await params;
   const wixClient = await wixClientServer();
 
   const products = await wixClient.products
     .queryProducts()
-    .eq("slug", params.slug)
+    .eq("slug", slug)
     .find();
 
   if (!products.items[0]) {
