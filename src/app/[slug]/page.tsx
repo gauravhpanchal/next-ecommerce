@@ -4,7 +4,10 @@ import ProductImages from "@/components/ProductImages/ProductImages";
 import { wixClientServer } from "@/lib/wixClientServer";
 import { notFound } from "next/navigation";
 
-const SinglePage = async ({ params }: { params: { slug: string } }) => {
+type tParams = Promise<{ slug: string[] }>;
+
+const SinglePage = async ({ params }: { params: { slug: tParams } }) => {
+  const { slug } = await params;
   const wixClient = await wixClientServer();
 
   const products = await wixClient.products
