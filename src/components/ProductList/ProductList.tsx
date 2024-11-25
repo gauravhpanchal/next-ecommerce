@@ -3,6 +3,8 @@ import { products } from "@wix/stores";
 import Image from "next/image";
 import Link from "next/link";
 import Pagination from "../Pagination/Pagination";
+import { Suspense } from "react";
+import Skeleton from "../Skeleton/Skeleton";
 
 const PRODUCT_PER_PAGE = 8;
 
@@ -88,11 +90,13 @@ const ProductList = async ({
         </Link>
       ))}
       {searchParams?.cat || searchParams?.name ? (
-        <Pagination
-          currentPage={res.currentPage || 0}
-          hasPrev={res.hasPrev()}
-          hasNext={res.hasNext()}
-        />
+        <Suspense fallback={<Skeleton />}>
+          <Pagination
+            currentPage={res.currentPage || 0}
+            hasPrev={res.hasPrev()}
+            hasNext={res.hasNext()}
+          />
+        </Suspense>
       ) : null}
     </div>
   );
