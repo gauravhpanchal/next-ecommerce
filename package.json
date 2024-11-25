@@ -12,6 +12,8 @@
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.2.0",
     "@wix/ecom": "^1.0.841",
+    "@wix/members": "^1.0.117",
+    "@wix/redirects": "^1.0.64",
     "@wix/sdk": "^1.14.4",
     "@wix/stores": "^1.0.287",
     "framer-motion": "^12.0.0-alpha.1",
@@ -20,7 +22,10 @@
     "lucide-react": "^0.460.0",
     "next": "^15.0.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-confetti": "^6.1.0",
+    "react-dom": "^18",
+    "timeago.js": "^4.0.2",
+    "zustand": "^5.0.1"
   },
   "devDependencies": {
     "@types/js-cookie": "^3.0.6",
