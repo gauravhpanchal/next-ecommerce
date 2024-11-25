@@ -9,7 +9,7 @@ const SinglePage = async ({
 }: {
   params: Promise<{ slug: string }>;
 }) => {
-  const { slug } = await params;
+  const slug = (await params).slug;
   const wixClient = await wixClientServer();
 
   const products = await wixClient.products
