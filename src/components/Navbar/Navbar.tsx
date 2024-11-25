@@ -10,9 +10,8 @@ const NavbarIcons = dynamic(() => import("../NavbarIcons/NavbarIcons"), {
   ssr: false,
 });
 
-type Props = {};
 
-const Navbar = (props: Props) => {
+const Navbar = () => {
   return (
     <div className="h-20 top-0 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 z-20  relative">
       {/* Mobile */}
@@ -39,14 +38,11 @@ const Navbar = (props: Props) => {
             <Link href="/" className="hover:underline">
               Home
             </Link>
-            <Link href="/" className="hover:underline">
+            <Link href="/list" className="hover:underline">
               Shop
             </Link>
-            <Link href="/" className="hover:underline">
+            <Link href="/list" className="hover:underline">
               Deals
-            </Link>
-            <Link href="/" className="hover:underline">
-              Contact
             </Link>
           </div>
         </div>
