@@ -18,26 +18,25 @@ const ProductList = async ({
   searchParams?: any;
 }) => {
   const wixClient = await wixClientServer();
+  const search = await searchParams;
 
   const productQuery = wixClient.products
     .queryProducts()
-    .startsWith("name", searchParams?.name || "")
+    .startsWith("name", search?.name || "")
     .eq("collectionIds", categoryId)
     .hasSome(
       "productType",
-      searchParams?.type ? [searchParams.type] : ["physical", "digital"]
+      search?.type ? [search.type] : ["physical", "digital"]
     )
-    .gt("priceData.price", searchParams?.min || 0)
-    .lt("priceData.price", searchParams?.max || 999999)
+    .gt("priceData.price", search?.min || 0)
+    .lt("priceData.price", search?.max || 999999)
     .limit(limit || PRODUCT_PER_PAGE)
     .skip(
-      searchParams?.page
-        ? parseInt(searchParams.page) * (limit || PRODUCT_PER_PAGE)
-        : 0
+      search?.page ? parseInt(search.page) * (limit || PRODUCT_PER_PAGE) : 0
     );
 
-  if (searchParams?.sort) {
-    const [sortType, sortBy] = searchParams.sort.split(" ");
+  if (search?.sort) {
+    const [sortType, sortBy] = search.sort.split(" ");
 
     if (sortType === "asc") {
       productQuery.ascending(sortBy);
@@ -89,7 +88,7 @@ const ProductList = async ({
           </button>
         </Link>
       ))}
-      {searchParams?.cat || searchParams?.name ? (
+      {search?.cat || search?.name ? (
         <Suspense fallback={<Skeleton />}>
           <Pagination
             currentPage={res.currentPage || 0}

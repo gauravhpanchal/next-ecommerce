@@ -6,7 +6,8 @@ import Image from "next/image";
 import React, { Suspense } from "react";
 
 const ListPage = async ({ searchParams }: { searchParams: any }) => {
-  const categorySlug = searchParams?.cat || "all-products";
+  const search = await searchParams;
+  const categorySlug = search?.cat || "all-products";
   try {
     const wixClient = await wixClientServer();
     const cat = await wixClient.collections.getCollectionBySlug(categorySlug);
@@ -45,7 +46,7 @@ const ListPage = async ({ searchParams }: { searchParams: any }) => {
             categoryId={
               cat.collection?._id || "00000000-000000-000000-000000000001"
             }
-            searchParams={searchParams}
+            searchParams={search}
           />
         </Suspense>
       </div>
